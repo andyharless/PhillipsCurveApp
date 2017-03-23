@@ -17,8 +17,18 @@ shinyServer(function(input, output) {
     cpi <- read.csv("CPIAUCNS.csv")
     c <- log(cpi$CPIAUCNS)
     infl <- 100*diff(c,12)
-    unemployment=ts(u$UNRATE, c(1948,1), c(2017,2), 12)
-    inflation=ts(infl,c(1948,1),c(2017,2),12)
+    begin_date <- c(1948,1)
+    end_date <- c(2017,2)
+#   This is 12-month lagging inflation: should unemployment be lagged by 12 months?
+#      infl <- infl[13:length(infl)]
+#      ue <- ue[1:(length(ue)-12)]
+#      end_date <- end_date - 12
+#    Or by 6 months?
+    infl <- infl[7:length(infl)]
+    ue <- ue[1:(length(ue)-6)]
+    end_date <- end_date - 6
+    unemployment=ts(ue, begin_date, end_date, 12)
+    inflation=ts(infl, begin_date, end_date, 12)
     df <- data.frame( year=as.vector(time(unemployment)), 
                       unemployment=as.vector(unemployment), 
                       Percent=as.vector(inflation) )
@@ -34,11 +44,7 @@ shinyServer(function(input, output) {
       if(nrow(brushed_data2) < 2){  return(NULL)  }
       brushed_data2
     })
-   output$brushed_data2 <- renderPrint({ 
-     cat("Whatever\n")
-     str(outs()) 
-     })
-   
+
    output$newPlot <- renderPlot({
      datas = outs()
      if (!is.null(datas)) {

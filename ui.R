@@ -14,7 +14,8 @@ shinyUI(fluidPage(
     titlePanel( "Inflation and Unemployment in the US, 1948-2016"),
     
     fluidRow( 
-       plotOutput("timeSeriesPlot", brush = brushOpts(id = "brush2"))
+      helpText( "Hold and brush over part of the chart to select a date range" ),
+      plotOutput( "timeSeriesPlot",  brush = brushOpts(id = "brush2") )
     ),
 
     fluidRow(
