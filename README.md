@@ -20,4 +20,8 @@ besides unemployment, and anyhow there's no reason to confine oneself to Phillip
 5. Allow user to configure definition of inflation (e.g. 6 months instead of a year,
 PCE deflator instead of CPI).
 
-6. Allow user to fit lines and/or curves (log-log?).
+6. Allow user to fit lines and/or curves (log-log?)
+
+7. Allow connecting adjacent points in scatter plots.
+
+8. Allow aggregating data in scatter plots (e.g. use annual instead of monthly).
