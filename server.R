@@ -22,11 +22,16 @@ shinyServer(function(input, output) {
 #   This is 12-month lagging inflation: should unemployment be lagged by 12 months?
 #      infl <- infl[13:length(infl)]
 #      ue <- ue[1:(length(ue)-12)]
-#      end_date <- end_date - 12
+#      end_date <- end_date - c(1,0)
 #    Or by 6 months?
     infl <- infl[7:length(infl)]
     ue <- ue[1:(length(ue)-6)]
-    end_date <- end_date - 6
+
+    # Kludge to adjust end_date to reflect inflation lag
+    nsubtract = 6  # number of months to subtract from end_date, must be <= 12
+    end_date[1] <- end_date[1] - ifelse( end_date[2]>nsubtract, 0, 1)
+    end_date[2] <- end_date[2] - nsubtract + ifelse( end_date[2]>nsubtract, 0, 12)
+
     unemployment=ts(ue, begin_date, end_date, 12)
     inflation=ts(infl, begin_date, end_date, 12)
     df <- data.frame( year=as.vector(time(unemployment)), 
