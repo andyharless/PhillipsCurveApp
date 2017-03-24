@@ -31,3 +31,5 @@ PCE deflator instead of CPI, maybe an exponential moving average?).
 9. Allow aggregating data in scatter plots (e.g. use annual instead of monthly).
 
 10. Pull in data directly from sources rather than using my canned series.
+
+11. Change the display so that it is clearer which parts of the scatter plot have more densely clustered points.
