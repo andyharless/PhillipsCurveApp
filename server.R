@@ -64,7 +64,14 @@ shinyServer(function(input, output) {
          else if (input$plot_type == "Scatter") {
            Unemployment <- datas$unemployment
            Inflation <-  datas$Percent
-           ggplot(sampl, aes(Unemployment, Inflation)) + geom_point()
+           g <- ggplot(sampl, aes(Unemployment, Inflation)) +
+                geom_point(size=input$size, alpha=input$alpha)
+           if (input$linefit) { g <- g + geom_smooth(method = "lm") }
+           if (input$polyfit) { 
+               g <- g + 
+                 geom_smooth( method="lm", formula = y ~ poly(x,2) ) 
+           }
+           g
          }
      }
    })
