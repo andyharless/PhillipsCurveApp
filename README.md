@@ -22,7 +22,7 @@ besides unemployment, and anyhow there's no reason to confine oneself to Phillip
 5. Allow user to configure definition of inflation (e.g. 6 months instead of a year,
 PCE deflator instead of CPI, maybe an exponential moving average?).
 
-6. --Allow user to fit lines and/or curves (log-log?)-- DONE for linear & quadratic, but could be others
+6. ~~Allow user to fit lines and/or curves (log-log?)~~ DONE for linear & quadratic, but could be others
 
 7. Allow connecting adjacent points in scatter plots.
 
@@ -32,4 +32,4 @@ PCE deflator instead of CPI, maybe an exponential moving average?).
 
 10. Pull in data directly from sources rather than using my canned series.
 
-11. --Change the display so that it is clearer which parts of the scatter plot have more densely clustered points.-- DONE
+11. ~~Change the display so that it is clearer which parts of the scatter plot have more densely clustered points.~~ DONE
