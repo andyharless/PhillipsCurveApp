@@ -5,6 +5,23 @@ The app is running on [this server](https://harless.shinyapps.io/PhillipsCurveAp
 
 Data were downloaded interactively from [FRED](https://fred.stlouisfed.org/)
 
+Files:
+
+- [server.R](server.R): Source code for server
+
+- [ui.R](ui.R): Source code for user interface
+
+- [UNRATE.csv](UNRATE.csv): Unemployment data from FRED
+
+- [CPIAUCNS.csv](CPIAUCNS.csv): CPI data from FRED
+
+- [README.md](README.md): This file
+
+- [pitch.Rmd](pitch.Rmd): R Markdown for 5-slide presentation
+
+- [pitch.html](pitch.html): HTML for 5-slide presentation
+
+
 Extensions to consider writing in the future:
 
 1. Allow user to choose time offset for unemployment (a point-in-time reading) vs.
